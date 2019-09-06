@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    var presidents: [President] = Presidents.List
+    
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            List(presidents) { president in
+                PresidentCell(president: president)
+            }
+            .navigationBarTitle(Text("US Presidents"))
+        }
     }
 }
 
