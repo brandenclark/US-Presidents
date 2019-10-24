@@ -17,7 +17,9 @@ struct ContentView: View {
                 PresidentCell(president: president)
             }
             .navigationBarTitle(Text("US Presidents"))
+            Text("Select a president from the master list")
         }
+//        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

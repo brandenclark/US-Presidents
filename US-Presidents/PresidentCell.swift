@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PresidentCell: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     let president: President
     
     var body: some View {
@@ -17,21 +18,15 @@ struct PresidentCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(8)
-                .frame(maxHeight: 70)
+                .frame(maxHeight: verticalSizeClass == .regular ? 70 : 40)
             VStack(alignment: .leading) {
                 Text(president.displayName)
-                Text(president.displayInOffice)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                if verticalSizeClass == .regular {
+                        Text(president.displayInOffice)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
             }
         }
     }
 }
-
-//#if DEBUG
-//struct PresidentCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PresidentCell()
-//    }
-//}
-//#endif

@@ -35,6 +35,17 @@ struct PresidentDetailView: View {
                 }
             }
         }
+        .navigationBarTitle(president.displayName)
+    }
+}
+
+struct BackButton: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        Button("Back") {
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
